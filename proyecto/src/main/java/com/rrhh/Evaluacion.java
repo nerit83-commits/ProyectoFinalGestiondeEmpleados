@@ -78,7 +78,6 @@ public class Evaluacion {
                 ", año=" + año +
                 ", puntaje=" + puntaje +
                 ", comentario='" + comentario + '\'' +
-                ", bonificacion=" + bonificacion +
                 '}';
     }
 
