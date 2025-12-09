@@ -6,7 +6,7 @@ public class Evaluacion {
     private int año;
     private int puntaje;   // Puntaje entre 1 y 5.
     private String comentario;  // Comentario del supervisor que evalúa.
-    private double bonificacion;  // La bonificación se calcula en el constructor.
+    //private double bonificacion;  // La bonificación se calcula en el constructor.
 
     // Constructor
     public Evaluacion(int mes, int año, int puntaje, String comentario, double salarioEmpleado) {
@@ -23,7 +23,7 @@ public class Evaluacion {
         this.año = año;
         this.puntaje = puntaje;
         this.comentario = comentario;
-        this.bonificacion = calcularBonificacion(puntaje, salarioEmpleado);
+        //this.bonificacion = calcularBonificacion(puntaje, salarioEmpleado);
     }
 
 
@@ -39,36 +39,6 @@ public class Evaluacion {
     }
     public String getComentario() { 
         return comentario; 
-    }
-    public double getBonificacion() { 
-        return bonificacion; 
-    }
-
-
-    // Método privado para calcular la bonificación basada en el puntaje.
-     /*
-     * Tabla:
-     * 5 = +20%
-     * 4 = +10%
-     * 3 =  0%
-     * 2 = -10%
-     * 1 = -20%
-     */
-    private double calcularBonificacion(int puntaje, double salario) {
-        switch (puntaje) {  //Switch que asigna bonificaciones segun el puntaje obtenido.
-            case 5:
-            return salario * 0.20;    // 20% de bonificación
-            case 4:
-            return salario * 0.10;   // 10% de bonificación
-            case 3:
-            return 0.0;              // Sin bonificación
-            case 2:
-            return salario * -0.10;  // 10% de deducción
-            case 1:
-            return salario * -0.20;  // 20% de deducción
-            default:
-            return 0.0;             // Puntaje inválido, por lo tanto, sin bonificación   
-        }
     }
 
     @Override

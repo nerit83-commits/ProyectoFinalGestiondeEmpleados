@@ -32,7 +32,7 @@ public class Main {
                     System.out.print("Cargo: ");
                     String cargo = sc.nextLine();
 
-                    System.out.print("Área: ");
+                    System.out.print("Area: ");
                     String area = sc.nextLine();
 
                     System.out.print("Salario: ");
@@ -59,7 +59,7 @@ public class Main {
                     int mes = sc.nextInt();
 
                     System.out.print("Año: ");
-                    int anioEv = sc.nextInt();
+                    int añoEv = sc.nextInt();
 
                     System.out.print("Puntaje (1-5): ");
                     int puntaje = sc.nextInt();
@@ -68,17 +68,16 @@ public class Main {
                     System.out.print("Comentario: ");
                     String comentario = sc.nextLine();
 
-                    gestor.registrarEvaluacion(e, mes, anioEv, puntaje, comentario);
+                    gestor.registrarEvaluacion(e, mes, añoEv, puntaje, comentario);
                     System.out.println("Evaluación registrada.");
                     break;
                 
-                // Caso para conocer el total de bonos y el mejor empleado del año.
+                // Caso para conocer el mejor empleado del año.
                 case 3:
                     System.out.print("Año: ");
-                    int anioReporte = sc.nextInt();
+                    int añoReporte = sc.nextInt();
 
-                    System.out.println("Total bonos en el año: " + gestor.totalBonosAnuales(anioReporte));
-                    System.out.println("Mejor empleado del año: " + gestor.mejorEmpleadoDelAño(anioReporte));
+                    System.out.println("Mejor empleado del año: " + gestor.mejorEmpleadoDelAño(añoReporte));
                     break;
                 // Cierre del sistema.
                 case 0:
@@ -90,5 +89,7 @@ public class Main {
             }
 
         } while (opcion != 0);  //Este while mantiene el menú activo hasta que el usuario decida salir.
+
+        sc.close();
     }
 }
