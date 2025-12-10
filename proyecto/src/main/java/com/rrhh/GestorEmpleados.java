@@ -95,5 +95,4 @@ public class GestorEmpleados {
 
         return mejor;
     }
-
 }
