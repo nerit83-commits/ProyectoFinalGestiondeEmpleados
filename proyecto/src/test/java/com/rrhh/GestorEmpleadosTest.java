@@ -1,5 +1,6 @@
 package com.rrhh;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -64,8 +65,9 @@ public class GestorEmpleadosTest {
         gestor.registrarEvaluacion(e1, 1, 2024, 3, "Bien");
         gestor.registrarEvaluacion(e2, 1, 2024, 5, "Excelente");
 
-        Empleado mejor = gestor.mejorEmpleadoDelAño(2024);
+        List<Empleado> mejores = gestor.mejoresEmpleadosDelAño(2024);
 
-        assertEquals("Luis", mejor.getNombre());
+
+        assertEquals("Luis", mejores.get(0).getNombre());
     }
 }

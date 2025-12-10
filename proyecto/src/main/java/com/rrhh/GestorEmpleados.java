@@ -3,7 +3,7 @@ package com.rrhh;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.Comparator;
+
 
 public class GestorEmpleados {
 
@@ -46,53 +46,40 @@ public class GestorEmpleados {
                 .average()  // Calcula el promedio de los puntajes.
                 .orElse(0.0);  // Devuelve 0.0 si no hay evaluaciones para ese año.
     }
-   
-    public Empleado mejorEmpleadoDelAño(int año) {
-        Empleado mejor = null;
-        double mejorPromedio = -1;  // Inicializado a -1 para asegurar que cualquier promedio válido lo supere.
-        String comentarioMejorEval = null;
+
+    public List<Empleado> mejoresEmpleadosDelAño(int año) {
+        List<Empleado> candidatos = new ArrayList<>();
+        double mejorPromedio = -1;
 
         for (Empleado e : empleados) {
+
+            if (!e.isActivo()) {
+                continue; 
+            }   
+
         // Filtrar evaluaciones del año
-                List<Evaluacion> evalsDelAño = e.getEvaluaciones().stream()
+            List<Evaluacion> evalsDelAño = e.getEvaluaciones().stream()
                 .filter(ev -> ev.getAño() == año)
                 .collect(Collectors.toList());
 
-             if (evalsDelAño.isEmpty()) {
-            continue;  // Si no tiene evaluaciones ese año, se salta
-            }
+            if (evalsDelAño.isEmpty()) {
+                continue;
+            }   
 
-            // Calcular promedio de puntajes
             double promedio = evalsDelAño.stream()
                 .mapToInt(Evaluacion::getPuntaje)
                 .average()
                 .orElse(0);
 
-            // Obtener la evaluación con mayor puntaje
-         Evaluacion mejorEvalEmpleado = evalsDelAño.stream()
-                .max(Comparator.comparingInt(Evaluacion::getPuntaje))
-                .orElse(null);
-
-            // Si supera al mejor promedio actual, actualizar "mejor"
             if (promedio > mejorPromedio) {
                 mejorPromedio = promedio;
-                mejor = e;
-
-                if (mejorEvalEmpleado != null) {
-                    comentarioMejorEval = mejorEvalEmpleado.getComentario();
-                 }
+                candidatos.clear();  
+                candidatos.add(e);
+            } else if (promedio == mejorPromedio) {
+                candidatos.add(e);
             }
         }
 
-        // Mostrar el comentario cuando se muestra el reporte
-        if (mejor != null) {
-            System.out.println("========== REPORTE ==========");
-            System.out.println(" Mejor empleado del año " + año + ": " + mejor.getNombre());
-            System.out.println(" Promedio de desempeño: " + mejorPromedio);
-            System.out.println(" Comentario destacado: " + comentarioMejorEval);
-            System.out.println("=============================");
-        }
-
-        return mejor;
+        return candidatos;
     }
 }
