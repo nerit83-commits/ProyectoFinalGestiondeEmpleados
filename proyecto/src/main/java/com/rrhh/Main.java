@@ -160,7 +160,7 @@ public class Main {
                     System.out.println("Opción no válida.");
             }
 
-        } while (opcion != 0);  //Este while mantiene el menú activo hasta que el usuario decida salir.
+        } while (opcion != 0);  //Este while mantiene el menú activo mientras la opción sea diferente a 0.
 
         sc.close();
     }   

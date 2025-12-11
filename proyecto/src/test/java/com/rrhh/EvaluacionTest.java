@@ -22,7 +22,7 @@ public class EvaluacionTest {
     }
 
     @Test
-    @Tag("regression")  // Test regression verifica que el constructor muestre excepción para un mes inválido.
+    @Tag("regression")  // Test regression verifica que el constructor muestre la excepción para un mes inválido.
     public void testConstructorMesInvalido() {
         assertThrows(IllegalArgumentException.class,
                 () -> new Evaluacion(15, 2024, 3, "Fuera de rango", 30000));
@@ -36,11 +36,12 @@ public class EvaluacionTest {
     }
 
     @ParameterizedTest  // Estos tests parametrizados verifican el constructor con diferentes conjuntos de datos.
-    @Tag("regression")  // Usa regression para asegurar que los cambios futuros no rompan la funcionalidad existente.
+    @Tag("regression")  // Usando regression seguramos que los cambios futuros no rompan la funcionalidad existente.
     @CsvSource({
-            "1,2024,5,Excelente",
-            "6,2023,3,Correcto",
-            "12,2022,2,Debe mejorar"
+        // Mes, Año, Puntaje, Comentario
+            "1, 2024,   5,    Excelente",
+            "6, 2023,   3,    Correcto",
+           "12, 2022,   2,    Debe mejorar"
     })
     public void testConstructorParametrizado(int mes, int año, int puntaje, String comentario) {
         Evaluacion eval = new Evaluacion(mes, año, puntaje, comentario, 20000);

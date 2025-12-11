@@ -12,21 +12,21 @@ public class EmpleadoTest {
     @Test
     @Tag("smoke")
     public void testConstructorValoresCorrectos() {
-        Empleado e = new Empleado("Ana", "Desarrolladora", "IT", 45000);
+        Empleado e = new Empleado("Ana", "Licenciada", "Enfermería", 80000);
 
         assertEquals("Ana", e.getNombre());
-        assertEquals("Desarrolladora", e.getCargo());
-        assertEquals("IT", e.getArea());
-        assertEquals(45000, e.getSalario());
+        assertEquals("Licenciada", e.getCargo());
+        assertEquals("Enfermería", e.getArea());
+        assertEquals(80000, e.getSalario());
         assertTrue(e.isActivo());
     }
 
     @Test
     @Tag("regression")
     public void testAgregarEvaluacion() {
-        Empleado e = new Empleado("Luis", "QA", "IT", 38000);
+        Empleado e = new Empleado("Luis", "Auxiliar", "Enfermería", 40000);
 
-        Evaluacion ev = new Evaluacion(3, 2024, 4, "Muy bien", 38000);
+        Evaluacion ev = new Evaluacion(3, 2024, 4, "Muy bien", 40000);
         e.agregarEvaluacion(ev);
 
         assertEquals(1, e.getEvaluaciones().size());
@@ -36,38 +36,38 @@ public class EmpleadoTest {
     @Test
     @Tag("regression")
     public void testNombreVacio() {
-        Empleado e = new Empleado("", "Dev", "IT", 30000);
+        Empleado e = new Empleado("", "Auxiliar", "Enfermería", 40000);
         assertEquals("", e.getNombre());
     }
 
     @Test
     @Tag("smoke")
     public void testToStringFormatoCorrecto() {
-        Empleado e = new Empleado("Ana", "Dev", "IT", 50000);
+        Empleado e = new Empleado("Ana", "Licenciada", "Enfermería", 80000);
 
         String resultado = e.toString();
 
         assertTrue(resultado.contains("Ana"));
-        assertTrue(resultado.contains("Dev"));
-        assertTrue(resultado.contains("IT"));
-        assertTrue(resultado.contains("50000"));
+        assertTrue(resultado.contains("Licenciada"));
+        assertTrue(resultado.contains("Enfermería"));
+        assertTrue(resultado.contains("80000"));
         assertTrue(resultado.contains("[ACTIVO]"));
     }
 
     @ParameterizedTest
     @Tag("regression")
     @CsvSource({
-            "Juan,Analista,Contabilidad",
+            "Juan,Mensajero,Mensajería",
             "María,Supervisora,RRHH",
-            "Pedro,Técnico,Soporte"
+            "Pedro,Auxiliar,Servicios"
     })
     public void testSetters(String nombre, String cargo, String area) {
         Empleado e = new Empleado("X", "X", "X", 10000);
-
+        // Aquí modifico los valores.
         e.setNombre(nombre);
         e.setCargo(cargo);
         e.setArea(area);
-
+        // Pruebo las modificaciones.
         assertEquals(nombre, e.getNombre());
         assertEquals(cargo, e.getCargo());
         assertEquals(area, e.getArea());
@@ -76,20 +76,20 @@ public class EmpleadoTest {
     @Test
     @Tag("regression")
     public void testSetActivo() {
-        Empleado e = new Empleado("Ana", "Dev", "IT", 40000);
+        Empleado e = new Empleado("Ana", "Licenciada", "Enfermería", 80000);
 
-        e.setActivo(false);
+        e.setActivo(false);  // Aquí modifico el estado.
 
-        assertFalse(e.isActivo());
+        assertFalse(e.isActivo());  // si es false, la prueba pasa.
     }
 
     @Test
     @Tag("regression")
     public void testModificarSalario() {
-        Empleado e = new Empleado("Ana", "Dev", "IT", 40000);
+        Empleado e = new Empleado("Ana", "Licenciada", "Enfermería", 80000);
 
-        e.setSalario(52000);
+        e.setSalario(52000);  // Aquí modifico el salario.
 
-        assertEquals(52000, e.getSalario());
+        assertEquals(52000, e.getSalario()); // Pruebo la modificación.
     }
 }

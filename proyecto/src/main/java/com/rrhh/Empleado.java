@@ -23,7 +23,7 @@ public class Empleado {
         this.activo = true;
     }
 
-    // Método para obtener las evaluaciones del empleado.
+    // Método para obtener las evaluaciones del empleado utilizando un array list que es dinámico.
     public List<Evaluacion> getEvaluaciones() {
         return evaluaciones;
     }
