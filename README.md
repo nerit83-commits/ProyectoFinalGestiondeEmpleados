@@ -1,9 +1,10 @@
-README: FUNCIONALIDADES PARA EL PROYECTO FINAL
-PROGRAMACIÓN PARA TESTERS
+README: FUNCIONALIDADES PARA EL PROYECTO FINAL PROGRAMACIÓN PARA TESTERS
 “Sistema de Gestión de Empleados y Evaluaciones”
+ESTUDIANTE: Nélida Rodríguez
+DOCENTE: Leonardo Jiménez
 
 OBJETIVO:
-	Crear un sistema para que una empresa pueda gestionar empleados, registrar sus salarios, áreas, así como llevar un control básico de evaluaciones de desempeño mensuales.
+--> Crear un sistema para que una empresa pueda gestionar empleados, registrar sus salarios, áreas, así como llevar un control básico de evaluaciones de desempeño mensuales.
 La aplicación permitirá:
 1. Gestionar empleados:
 A- Agregar empleado:
