@@ -1,4 +1,4 @@
-  package com.rrhh;
+package com.rrhh;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;

@@ -67,7 +67,11 @@ public class GestorEmpleadosTest {
 
         List<Empleado> mejores = gestor.mejoresEmpleadosDelAño(2024);
 
+        //Verifica que Luis esté entre los mejores (sin depender del orden)
+        assertTrue(
+        mejores.stream().anyMatch(e -> e.getNombre().equals("Luis")));
 
-        assertEquals("Luis", mejores.get(0).getNombre());
+        //Opcional: asegurás que solo haya uno en este caso
+        assertEquals(1, mejores.size());
     }
 }

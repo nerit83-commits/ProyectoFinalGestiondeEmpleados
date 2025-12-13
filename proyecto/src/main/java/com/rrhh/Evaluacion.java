@@ -6,9 +6,10 @@ public class Evaluacion {
     private int año;
     private int puntaje;   // Puntaje entre 1 y 5.
     private String comentario;  // Comentario del supervisor que evalúa.
+    private double salarioEmpleado; // Salario del empleado evaluado.
 
 
-    // Constructor
+    // Constructor.
     public Evaluacion(int mes, int año, int puntaje, String comentario, double salarioEmpleado) {
 
         // If para validar mes y puntaje. Manejo de excepciones.
@@ -23,6 +24,7 @@ public class Evaluacion {
         this.año = año;
         this.puntaje = puntaje;
         this.comentario = comentario;
+        this.salarioEmpleado = salarioEmpleado;
       
     }
 
@@ -40,14 +42,18 @@ public class Evaluacion {
     public String getComentario() { 
         return comentario; 
     }
+    public double getSalarioEmpleado() { 
+        return salarioEmpleado; 
+    }
 
+    
     @Override
-    public String toString() {
+    public String toString() {  //Método para mostrar la evaluacion con sus atributos.
         return "Evaluacion{" +
                 "mes=" + mes +
                 ", año=" + año +
                 ", puntaje=" + puntaje +
-                ", comentario='" + comentario + '\'' +
+                ", comentario='" + comentario + '\'' + 
                 '}';
     }
 

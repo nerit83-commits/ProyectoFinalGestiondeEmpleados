@@ -28,6 +28,7 @@ public class Empleado {
         return evaluaciones;
     }
 
+    // Método para agregar una evaluación al empleado.
     public void agregarEvaluacion(Evaluacion evaluacion) {
     this.evaluaciones.add(evaluacion);
     }
@@ -64,7 +65,8 @@ public class Empleado {
         this.activo = activo; 
     }
 
-    
+   
+    //este método devuelve una representación en cadena del objeto Empleado.
     @Override
     public String toString() { // Formato personalizado para mostrar la información del empleado.
         return nombre + " - " + cargo + " (" + area + ") - $" + salario +

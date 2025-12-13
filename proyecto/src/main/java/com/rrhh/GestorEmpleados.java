@@ -93,7 +93,7 @@ public class GestorEmpleados {
     //precisamso obtenerla para poder recorrerla.Por ejemplo: [Evaluacion1, Evaluacion2, Evaluacion3...]
     */
 
-    public List<Empleado> mejoresEmpleadosDelAño(int año) {
+    public List<Empleado> mejoresEmpleadosDelAño(int año) {  //Método para obtener los mejores empleados del año.
         List<Empleado> candidatos = new ArrayList<>();
         double mejorPromedio = -1;
         //candidatos: aquí se guardarán los empleados que tengan el mejor promedio.
